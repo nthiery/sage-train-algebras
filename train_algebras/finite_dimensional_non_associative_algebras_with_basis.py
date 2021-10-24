@@ -1,6 +1,6 @@
 from sage.misc.cachefunc import cached_method
 from sage.categories.category_types import Category_over_base_ring  # type: ignore
-from sage.categories.category_with_axiom import CategoryWithAxiom  # type: ignore
+from sage.categories.category_with_axiom import CategoryWithAxiom_over_base_ring  # type: ignore
 from sage.categories.magmatic_algebras import MagmaticAlgebras  # type: ignore
 from sage.matrix.constructor import matrix  # type: ignore
 
@@ -95,7 +95,7 @@ class FiniteDimensionalNonAssociativeAlgebrasWithBasis(Category_over_base_ring):
         def is_isomorphic(self, other):
             return self.isomorphism_ideal(other).dimension() >= 0
 
-    class Commutative(CategoryWithAxiom):
+    class Commutative(CategoryWithAxiom_over_base_ring):
 
         class ParentMethods:
             def product_on_basis(self, a, b):

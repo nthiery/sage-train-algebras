@@ -14,14 +14,27 @@ kernelspec:
 # Sage-Train_Algebras
 
 Sage-Train_Algebras is a tiny library to compute with (commutative)
-*train algebras* (commutative non associative algebras satisfying a
-given defining equation) of finite dimension. It originates
-from two successive CIMPA schools in Burkina Faso (Bobo Dioulasso,
-2012 & 2021).
+*(pre)train algebras* of finite dimension. It originates from two
+successive CIMPA schools in Burkina Faso (Bobo Dioulasso, 2012 &
+2021).
 
 It's meant to support computer exploration of (small) examples defined
 by their multiplication table, and provides utilities to easily define
-such, test isomorphism, and so on.
+such, test isomorphism, test whether they actually are train algebras,
+and so on.
+
+## Context
+
+A *pre-train algebra* is a commutative non associative algebra equiped
+with an algebra morphism $\omega$ to its base ring satisfying an
+equation of the form ... [TODO]
+
+A *train algebra* is a pretrain algebra satisfying an equation of the
+form $\alpha_0 x^n + \alpha_1 \omega(x)x^{n-2} + \ldots + \omega(x)^n
+=0$, where $alpha_0+\cdots+\alpha_n=0$ (wlog, we may assume
+$\alpha_0=1$).
+
+TODO: references
 
 ## First example
 

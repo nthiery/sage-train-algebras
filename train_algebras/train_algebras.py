@@ -3,10 +3,49 @@ from sage.categories.category_types import Category_over_base_ring  # type: igno
 from .finite_dimensional_non_associative_algebras_with_basis import FiniteDimensionalNonAssociativeAlgebrasWithBasis
 from sage.combinat.free_module import CombinatorialFreeModule  # type: ignore
 
-class TrainAlgebras(Category_over_base_ring):
+class PreTrainAlgebras(Category_over_base_ring):
+    """
+    Pre-train algebras
+
+    .. WARN::
+
+        All pre-train algebras are supposed to be commutative and
+        finite dimensional.
+
+    EXAMPLES::
+
+        sage: from train_algebras import PreTrainAlgebras
+        sage: C = PreTrainAlgebras(QQ)
+        sage: C.super_categories()
+        [Category of commutative finite dimensional non associative algebras with basis over Rational Field]
+
+    TESTS::
+
+        sage: TestSuite(C).run()
+
+    """
 
     def super_categories(self):
         return [FiniteDimensionalNonAssociativeAlgebrasWithBasis(self.base_ring()).Commutative()]
+
+class TrainAlgebras(Category_over_base_ring):
+    """
+    Train algebras
+
+    EXAMPLES::
+
+        sage: from train_algebras import TrainAlgebras
+        sage: C = TrainAlgebras(QQ)
+        sage: C.super_categories()
+        [Category of pre train algebras over Rational Field]
+
+    TESTS::
+
+        sage: TestSuite(C).run()
+    """
+
+    def super_categories(self):
+        return [PreTrainAlgebras(self.base_ring())]
 
     def example(self):
         return Example(self.base_ring())
