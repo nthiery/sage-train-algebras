@@ -1,0 +1,3 @@
+from .finite_dimensional_non_associative_algebras_with_basis import FiniteDimensionalNonAssociativeAlgebrasWithBasis
+from .train_algebras import TrainAlgebras
+import train_algebras.examples as examples
